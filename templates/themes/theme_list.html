@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme List</title>
+</head>
+<body>
+    <h1>Theme List</h1>
+    <ul>
+        {% for theme in themes %}
+            <li>{{ theme.name }}</li>
+            <a href="{% url 'edit_theme' theme.pk %}">Edit</a>
+            <a href="{% url 'delete_theme' theme.pk %}">Delete</a>
+        {% empty %}
+            <li>No themes found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_theme' %}">Add New Theme</a>
+</body>
+</html>
